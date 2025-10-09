@@ -1,0 +1,20 @@
+{
+  "Name": "Dion",
+  "age": 17,
+  "Adress": {
+    "Street": "main st",
+    "city": "Barcelona",
+    "zipcode": "1234",
+    "postcode": "567883"
+  },
+  "contacts":[{
+    "type": "Email",
+    "value": "dion.ibrahimi2008@gmail.com"
+  },
+  {
+    "type": "Tel nr",
+    "value": "048-888-891"
+  }
+
+  ]
+}
