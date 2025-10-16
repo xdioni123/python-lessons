@@ -21,6 +21,14 @@ app = FastAPI()
 def get_items():
     return{"item_1","item_2","item_3"}
 
-@app.post("/items/{items}")
-def items(items: str, price: float):
-    return{"name":items,"price": price}
+@app.post("/items/")
+def items(item_name: str, price: float):
+    return{"name":item_name,"price": price}
+
+@app.put("/items/{item}")
+def item_uptade(item_id: int, item_name: str, price: float):
+    return{"item_update": item_id,"items_name":item_name, "price": price}
+
+@app.delete("/items/{item_id}")
+def item_delete(item_id: int):
+    return{"item_delete":f"item {item_id} has been obliderated"}
