@@ -1,26 +1,14 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+import streamlit as st
+import request
+import pandas as pd
 
+st.title("Project Managment App")
 
-app = FastAPI()
+st.header("Add developer")
+dev_name = st.text_input("Developer name")
+dev_experience = st.number_imput("Experience (Years)", min_value=0 , max_value=50 value=0)
 
-class User(BaseModel):
-    id: int
-    name: str
-    age: int
-    email: str
-
-class Person(BaseModel):
-    name: str
-    age: int
-
-class PersonResponse(BaseModel):
-    message: str
-
-@app.post("/users/")
-async def create_user(user:User):
-    return user
-
-@app.post("/create_person/" , response_model=PersonResponse)
-async def create_person(person:Person):
-    return{'message': f"Person {person.name} create with age {person.age}"}
+if st.button ("Create Developer"):
+    dev_data = {"name" : dev_name, "experience" : dev_experience}
+    response = request.post("http://localhost:8000/developers", json = dev_data)
+    st.json(response.json())
