@@ -14,8 +14,8 @@ def developer(project: Project):
 @app.get("/projects")
 def get_projects():
     sample_project=Project(
-        title = "Project 1"
-        description = "This project is about the coding langueges"
-        languages = ["Python, javascript, Php"]
+        title = "Project 1",
+        description = "This project is about the coding langueges",
+        languages = ["Python, javascript, Php"],
         lead_developer = Developer(emri="Jhon doe" , experience = 0)
     )
